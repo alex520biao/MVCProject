@@ -7,19 +7,22 @@
 //
 
 #import "DetailViewController.h"
-
+#import "Plist+Add.h"
+#import "JSONLocal+Add.h"
+#import "DBManagerAdd.h"
+#import "GroupInfo.h"
+#import "ItemObj.h"
 @interface DetailViewController ()
 - (void)configureView;
 @end
 
 @implementation DetailViewController
+@synthesize style=_style;
 
 #pragma mark - Managing the detail item
-
-- (void)setDetailItem:(id)newDetailItem
-{
-    if (_detailItem != newDetailItem) {
-        _detailItem = newDetailItem;
+-(void)setStyle:(int)style{
+    if (_style != style) {
+        _style = style;
         
         // Update the view.
         [self configureView];
@@ -29,9 +32,21 @@
 - (void)configureView
 {
     // Update the user interface for the detail item.
-
-    if (self.detailItem) {
-        self.detailDescriptionLabel.text = [self.detailItem description];
+    if (self.style==0) {
+        NSMutableArray *featureList=[[DBManager sharedDBManager] queryFeatureList];
+        for (Feature *feature in featureList) {
+            NSLog(@"%@",feature.name);
+        }
+    }else if (self.style==1){
+        NSMutableArray *itemList= [Plist plistLoadItemList];
+        for (ItemObj *itemObj in itemList) {
+            NSLog(@"%@",itemObj.itemTitle);
+        }
+    }else if (self.style==2){
+        NSMutableArray *groupList=[JSONLocal plistLoadItemList];
+        for (GroupInfo *froup in groupList) {
+            NSLog(@"%@",froup.group_name);
+        }
     }
 }
 

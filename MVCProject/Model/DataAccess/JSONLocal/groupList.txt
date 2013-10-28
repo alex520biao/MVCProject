@@ -1,0 +1,29 @@
+{
+    "err_code": 0,
+    "err_msg": "success",
+    "data": {
+        "groups": [
+            {
+                "group_id": 564043,
+                "group_name": "啊",
+                "group_ann": "",
+                "users_num": 1,
+                "posts_num": 1,
+                "pictures_num": 1,
+                "cover_picture_url": "http://db-testing-rdtest00.vm.baidu.com:8090/album/scrop%3D200/sign=64153b389a504fc2a601f75a95e0d521/c2fdfc039245d6889f040594a5c27d1ed21b24ff.jpg",
+                "identity": 2
+            },
+            {
+                "group_id": 564038,
+                "group_name": "test",
+                "group_ann": "",
+                "users_num": 1,
+                "posts_num": 3,
+                "pictures_num": 55,
+                "cover_picture_url": "http://db-testing-rdtest00.vm.baidu.com:8090/album/scrop%3D200/sign=ff35f9ec55e736d15c4dcb57eb6d7df2/4610b912c8fcc3ce84c67e039345d688d43f20ff.jpg",
+                "identity": 2
+            }
+        ],
+        "total_page": 0
+    }
+}
