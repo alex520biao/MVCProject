@@ -14,6 +14,7 @@
 
 + (UserDefaultsManager*)instance;
 
+//save(持久化)/load(重新载入)
 #pragma mark UserInfo(用户信息)CRUD操作
 -(void)syncToDisk;
 - (NSInteger)getUserId;

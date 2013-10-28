@@ -17,6 +17,7 @@
 
 @interface DBManager(Add)
 
+//save(持久化)/load(重新载入)
 #pragma mark Feature
 -(NSMutableArray*)queryFeatureList;
 

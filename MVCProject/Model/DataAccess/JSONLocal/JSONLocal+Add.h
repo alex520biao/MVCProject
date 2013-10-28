@@ -22,6 +22,7 @@
 */
 
 #pragma mark itemList
+//save(持久化)/load(重新载入)
 +(NSMutableArray*)loadGroupList;
 
 #pragma mark other

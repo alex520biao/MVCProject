@@ -25,6 +25,7 @@
 */
 
 #pragma mark itemList
+//save(持久化)/load(重新载入)
 +(NSMutableArray*)loadItemList;
 
 #pragma mark ThemeList(皮肤主题)

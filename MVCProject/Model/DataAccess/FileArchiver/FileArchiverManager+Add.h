@@ -8,6 +8,7 @@
 
 #import "FileArchiverManager.h"
 
+//save(持久化)/load(重新载入)
 @interface FileArchiverManager (Add)
 
 #pragma mark ShoppingCart(购物车)CRUD操作
