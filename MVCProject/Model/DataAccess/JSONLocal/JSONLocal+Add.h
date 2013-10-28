@@ -22,7 +22,7 @@
 */
 
 #pragma mark itemList
-+(NSMutableArray*)plistLoadItemList;
++(NSMutableArray*)loadGroupList;
 
 #pragma mark other
 @end

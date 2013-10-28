@@ -44,7 +44,7 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
 {
-    return 3;
+    return 5;
 }
 
 // Customize the appearance of table view cells.
@@ -64,6 +64,10 @@
         cell.textLabel.text = @"本地Plist/XML";
     }else if (indexPath.row==2){
         cell.textLabel.text = @"本地JSON";
+    }else if (indexPath.row==3){
+        cell.textLabel.text = @"文件归档";
+    }else if (indexPath.row==4){
+        cell.textLabel.text = @"UserDefault";
     }
     return cell;
 }

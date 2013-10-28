@@ -12,6 +12,9 @@
 #import "DBManagerAdd.h"
 #import "GroupInfo.h"
 #import "ItemObj.h"
+#import "Theme.h"
+#import "FileArchiverManager.h"
+#import "UserDefaultsManager.h"
 @interface DetailViewController ()
 - (void)configureView;
 @end
@@ -38,16 +41,25 @@
             NSLog(@"%@",feature.name);
         }
     }else if (self.style==1){
-        NSMutableArray *itemList= [Plist plistLoadItemList];
+        NSMutableArray *itemList= [Plist loadItemList];
         for (ItemObj *itemObj in itemList) {
             NSLog(@"%@",itemObj.itemTitle);
         }
     }else if (self.style==2){
-        NSMutableArray *groupList=[JSONLocal plistLoadItemList];
+        NSMutableArray *groupList=[JSONLocal loadGroupList];
         for (GroupInfo *froup in groupList) {
             NSLog(@"%@",froup.group_name);
         }
+    }else if (self.style==4){
+        //保存当前主题
+        Theme *theme=[[Theme alloc] init];
+        theme.themeName=@"酷黑";
+        [[UserDefaultsManager instance] saveCurrentTheme:theme];
+        //读取当前主题
+        Theme *currentTheme=[[UserDefaultsManager instance] loadCurrentTheme];
+        NSLog(@"%@",currentTheme.themeName);
     }
+
 }
 
 - (void)viewDidLoad

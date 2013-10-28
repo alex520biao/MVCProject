@@ -25,7 +25,9 @@
 */
 
 #pragma mark itemList
-+(NSMutableArray*)plistLoadItemList;
++(NSMutableArray*)loadItemList;
 
-#pragma mark other
+#pragma mark ThemeList(皮肤主题)
++(NSMutableArray*)loadThemeList;
+
 @end

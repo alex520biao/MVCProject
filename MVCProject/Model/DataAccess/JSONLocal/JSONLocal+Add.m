@@ -11,15 +11,15 @@
 @implementation JSONLocal (Add)
 
 #pragma mark itemList
-+(NSMutableArray*)plistLoadItemList{
-    NSMutableArray *itemList=[[NSMutableArray alloc] init];
++(NSMutableArray*)loadGroupList{
+    NSMutableArray *groupList=[[NSMutableArray alloc] init];
     NSDictionary *dict=[JSONLocal plistLoadDict:@"groupList"];
     NSArray *list=[[dict objectForKey:@"data"] objectForKey:@"groups"];
     for (int i=0; i<list.count; i++) {
         GroupInfo *obj=[[GroupInfo alloc] initWithDicionary:[list objectAtIndex:i]];
-        [itemList addObject:obj];
+        [groupList addObject:obj];
     }
-    return itemList;
+    return groupList;
 }
 
 #pragma mark other

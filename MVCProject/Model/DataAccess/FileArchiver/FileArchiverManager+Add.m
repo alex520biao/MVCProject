@@ -1,35 +1,17 @@
 //
-//  ShoppingCartFileService.m
-//  BookStore
+//  FileArchiverManager+Add.m
+//  MVCProject
 //
-//  Created by Ye Zhu on 8/26/12.
+//  Created by baidu on 13-10-28.
+//  Copyright (c) 2013年 alex. All rights reserved.
 //
-//
 
-#import "ShoppingCartFileService.h"
+#import "FileArchiverManager+Add.h"
+#import "FileArchiverManager.h"
+#define kShoppingCartFile               @"shoppingcarts.archive"//归档文件名称
+#define kShoppingCartFileDataKey        @"shoppingcarts"//DataKey
 
-@implementation ShoppingCartFileService
-
-
-+ (ShoppingCartFileService*) instance
-{
-    static ShoppingCartFileService* instance = nil;
-
-    @synchronized(self){
-		if (nil == instance) {
-			instance = [[self alloc] init];
-		}
-	}
-	
-    return instance;
-}
-
-- (NSString *)documentsDirectory
-{
-	NSArray *paths = NSSearchPathForDirectoriesInDomains(NSDocumentDirectory, NSUserDomainMask, YES);
-	NSString *documentsDirectory = [paths objectAtIndex:0];
-	return documentsDirectory;
-}
+@implementation FileArchiverManager (Add)
 
 - (NSString *)dataFilePath
 {
@@ -58,6 +40,14 @@
     return nil;
 }
 
+#pragma mark Favorite(收藏)CRUD操作
+- (NSArray*)loadFavorite{
+    return nil;
+}
+
+- (void)saveFavorite:(NSArray*)lists{
+
+}
 
 
 @end

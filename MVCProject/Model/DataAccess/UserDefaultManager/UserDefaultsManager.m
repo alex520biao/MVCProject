@@ -6,17 +6,17 @@
 //
 //
 
-#import "UserDefaultsService.h"
+#import "UserDefaultsManager.h"
 
 #define kUserDefaults_Userid                    @"kUserDefaults_Userid"
 #define kUserDefaults_Username                  @"kUserDefaults_Username"
 
-@implementation UserDefaultsService
+@implementation UserDefaultsManager
 
 
-+ (UserDefaultsService*) instance
++ (UserDefaultsManager*) instance
 {
-    static UserDefaultsService* instance = nil;
+    static UserDefaultsManager* instance = nil;
 
     @synchronized(self){
 		if (nil == instance) {
@@ -81,4 +81,20 @@
     [[NSUserDefaults standardUserDefaults] setObject:username forKey:kUserDefaults_Username];
 }
 
+
+#define kCurrentTheme   @"kCurrentTheme"
+#pragma mark currentTheme
+-(Theme*)loadCurrentTheme{
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    NSData *themeData = [userDefault objectForKey:kCurrentTheme];
+    Theme *theme = [NSKeyedUnarchiver unarchiveObjectWithData:themeData];
+    return theme;
+}
+
+-(void)saveCurrentTheme:(Theme*)currentTheme{
+    NSUserDefaults *userDefault = [NSUserDefaults standardUserDefaults];
+    NSData *themeData = [NSKeyedArchiver archivedDataWithRootObject:currentTheme];
+    [userDefault setObject:themeData forKey:kCurrentTheme];
+    [userDefault synchronize];    
+}
 @end
